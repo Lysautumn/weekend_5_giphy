@@ -4,28 +4,26 @@
         <meta charset="utf-8">
         <title>Giphy Peer Thing</title>
         <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js" charset="utf-8"></script>
-        <script src="scripts/client.js" charset="utf-8"></script>
+        <script src="scripts/module.js" charset="utf-8"></script>
+        <script src="scripts/main.controller.js" charset="utf-8"></script>
+        <script src="scripts/giphy.service.js" charset="utf-8"></script>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
     <body ng-app="giphyApp" ng-controller="MainController as main">
-        <!-- <select ng-model="main.selected" ng-change="main.getFilmData()">
-            <option ng-repeat="film in main.films" ng-value="film.url">{{film.title}}</option>
-        </select> -->
-
         <main ng-class="main.class">
-            <button type="submit" id="randomButton" ng-click="main.getRandom()">Random</button>
+          <!-- for getting a random gif -->
+            <button type="submit" id="randomButton" ng-click="main.forRandom()">Random</button>
+            <!-- for searching for a gif -->
             <form id="searchinTime">
                         <label for="searchBar"></label>
                         <input type="text" id="searchin" ng-model="main.searchin"/>
-
-
-                        <button type="submit" id="searchButton" ng-click="main.getSpecific()">Search</button>
+                        <button type="submit" id="searchButton" ng-click="main.forSearch()">Search</button>
             </form>
             <div ng-repeat="gif in main.gifsArray">
                 <img ng-src="{{gif.images.original.url}}">
 
             </div>
-            <img id="randomGif" ng-src="{{main.gifs}}"/>
+            <img ng-src="{{main.gifs}}"/>
         </main>
 
     </body>
