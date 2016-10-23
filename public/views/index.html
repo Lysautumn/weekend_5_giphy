@@ -5,9 +5,13 @@
         <title>Gotta Love a Gif</title>
         <script src="vendors/angular.min.js" charset="utf-8"></script>
         <script src="vendors/angular-route.min.js" charset="utf-8"></script>
+
         <script src="scripts/module.js" charset="utf-8"></script>
+        <script src="scripts/app.config.js" charset="utf-8"></script>
+        <script src="scripts/fav.service.js" charset="utf-8"></script>
         <script src="scripts/main.controller.js" charset="utf-8"></script>
         <script src="scripts/giphy.service.js" charset="utf-8"></script>
+
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
     <body ng-controller="MainController as main">
@@ -39,6 +43,7 @@
               <label for="saveImg" ng-show="showme">Description:</label>
               <input type="text" name="saveImg" id="saveImg" ng-show="showme" />
               <button ng-show="showme" ng-click"main.toSave()">Save</button>
+
             </form>
 
         </main>

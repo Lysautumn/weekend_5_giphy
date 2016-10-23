@@ -1,2 +1,2 @@
 // sets up giphy app module
-angular.module('giphyApp', []);
+const app = angular.module('giphyApp', ['ngRoute']);

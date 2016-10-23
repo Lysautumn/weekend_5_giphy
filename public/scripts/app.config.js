@@ -6,6 +6,8 @@ angular.module('giphyApp')
           }).when('/favorites', {
             templateUrl: 'views/favs.html',
             controller: 'DBController as db'
+          }).otherwise({
+            redirectTo: '/home'
           });
         $locationProvider.html5Mode(true);
       });
