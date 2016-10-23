@@ -1,12 +1,17 @@
 // connects giphy app module with MainController
 angular.module('giphyApp').controller('MainController', MainController);
 // function for MainController
-function MainController(gifapi) {
+function MainController(gifapi, $http) {
   var main = this;
+
   console.log('MainController loaded');
   // sets up initialized main.gifs and gifsArray
   main.gifs = null;
   main.gifsArray = [];
+  main.description = '';
+  main.favsCounter = 0;
+  main.favs = null;
+
   // function that connects to random button
   main.forRandom = function() {
     gifapi.getRandom().then(function(gifs) {
@@ -20,14 +25,13 @@ function MainController(gifapi) {
       main.gifsArray = gif;
     });
   };
-  main.toSave = function(event) {
-    event.preventDefault();
-    var imgData = main.serialize();
-    $http({
-      url: '/favs',
-      type: 'POST',
-      data: imgData
+  main.toSave = function(description, url) {
+    main.favs = {
+      'description': main.saveImg,
+      'url': main.src,
+    };
+    gifapi.toSave(main.favs).then(function(response) {
+      console.log('response', response);
     });
-    main.find('input').val('');
   };
 }

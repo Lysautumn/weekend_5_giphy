@@ -16,4 +16,10 @@ function GiphyAPIService($http) {
       return response.data.data;
     });
   };
+  // function for sending post request to route to save gifs
+  this.saveImg = function(favs) {
+    return $http.post('/favorites', favs).then(function(favs) {
+      return favs;
+    });
+  };
 }

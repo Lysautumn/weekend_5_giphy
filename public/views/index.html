@@ -27,14 +27,20 @@
           <!-- for getting a random gif -->
             <div id="gifSearchResults" ng-repeat="gif in main.gifsArray">
                 <img ng-src="{{gif.images.fixed_height.url}}" ng-click="showme=true">
-                <label for="saveImg" ng-show="showme">Description:</label>
-                <input type="text" name="saveImg" id="saveImg" ng-show="showme" />
-                <button ng-show="showme" ng-click="main.toSave()">Save</button>
-            </div>
+                <form class="forSaving">
+                  <label for="saveImg" ng-show="showme">Description:</label>
+                  <input type="text" name="saveImg" id="saveImg" ng-show="showme" />
+                  <button ng-show="showme" ng-click="main.toSave()">Save</button>
+              </div>
+                </form>
+
             <img ng-src="{{main.gifs}}" ng-click="showme=true"/>
-            <label for="saveImg" ng-show="showme">Description:</label>
-            <input type="text" name="saveImg" id="saveImg" ng-show="showme" />
-            <button ng-show="showme" ng-click"main.toSave()">Save</button>
+            <form class="forSaving">
+              <label for="saveImg" ng-show="showme">Description:</label>
+              <input type="text" name="saveImg" id="saveImg" ng-show="showme" />
+              <button ng-show="showme" ng-click"main.toSave()">Save</button>
+            </form>
+
         </main>
 
     </body>
