@@ -30,14 +30,17 @@ function MainController(gifapi, favService) {
     main.search = '';
   };
   main.toSave = function() {
-    const data = $.param({
+
+    var data = $.param({
       description: main.saveImg,
       url: main.url
     });
+    console.log('description', main.saveImg);
+    console.log('url', main.url);
     favService.toSave(data);
   };
   main.getFavs = function() {
-    favorites.getFavorites().then(function(response) {
+    favService.getFavorites().then(function(response) {
       main.favsArray = response;
     });
   };

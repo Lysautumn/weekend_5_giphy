@@ -1,5 +1,5 @@
-const router = require('express').Router();
-const pg = require('pg');
+var router = require('express').Router();
+var pg = require('pg');
 
 var config = {
   database: 'rho'

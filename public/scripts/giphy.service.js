@@ -3,7 +3,7 @@ angular.module('giphyApp').service('gifapi', GiphyAPIService);
 
 // sets up http function and API variable
 function GiphyAPIService($http) {
-  const API = 'http://api.giphy.com/v1/gifs/';
+  var API = 'http://api.giphy.com/v1/gifs/';
   // function for getting random gif
   this.getRandom = function() {
     return $http.get(API + 'random?api_key=dc6zaTOxFJmzC').then(function(response) {

@@ -1,9 +1,9 @@
-const express = require('express');
-const app = express();
-const path = require('path');
-const bodyParser = require('body-parser');
+var express = require('express');
+var app = express();
+var path = require('path');
+var bodyParser = require('body-parser');
 
-const favsRouter = require('./routes/favorites.js');
+var favsRouter = require('./routes/favorites.js');
 
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({extended: true}));
