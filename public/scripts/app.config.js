@@ -3,10 +3,9 @@ angular.module('giphyApp')
         $routeProvider.when('/home', {
             templateUrl: 'views/index.html',
             controller: 'MainController as main'
-          }).when('/favorite', {
+          }).when('/favorites', {
             templateUrl: 'views/favs.html',
             controller: 'DBController as db'
           });
         $locationProvider.html5Mode(true);
       });
-      
