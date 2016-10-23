@@ -1,4 +1,3 @@
-angular.module('gihpyApp');
 
 const express = require('express');
 const app = express();
@@ -22,7 +21,7 @@ router.post('/', function(req, res) {
       return;
     }
 
-    client.query('INSERT INTO favorites (description, url) VALUES ($1, $2) RETURNING *;', [req.body.description, req.body.url], function(err, result) {
+    client.query('INSERT INTO favorites (description, url) VALUES ($1, $2) RETURNING *;', [main.favs.description, main.favs.url], function(err, result) {
       done();
       if (err) {
         console.log('Error querying the DB', err);
