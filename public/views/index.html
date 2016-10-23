@@ -1,29 +1,40 @@
 <!DOCTYPE html>
-<html>
+<html ng-app="giphyApp" >
     <head>
         <meta charset="utf-8">
-        <title>Giphy Peer Thing</title>
-        <script src="https://ajax.googleapis.com/ajax/libs/angularjs/1.5.8/angular.min.js" charset="utf-8"></script>
+        <title>Gotta Love a Gif</title>
+        <script src="vendors/angular.min.js" charset="utf-8"></script>
+        <script src="vendors/angular-route.min.js" charset="utf-8"></script>
         <script src="scripts/module.js" charset="utf-8"></script>
         <script src="scripts/main.controller.js" charset="utf-8"></script>
         <script src="scripts/giphy.service.js" charset="utf-8"></script>
         <link rel="stylesheet" type="text/css" href="/css/style.css">
     </head>
-    <body ng-app="giphyApp" ng-controller="MainController as main">
+    <body ng-controller="MainController as main">
+      <header>
+        <h1>Find Yourself a Giphy</h1>
+        <div id="searchingStuff">
+          <button type="submit" id="randomButton" ng-click="main.forRandom()">Random</button>
+          <!-- for searching for a gif -->
+          <form id="searchinTime">
+                      <label for="searchBar"></label>
+                      <input type="text" id="searchin" ng-model="main.searchin"/>
+                      <button type="submit" id="searchButton" ng-click="main.forSearch()">Search</button>
+          </form>
+        </div>
+      </header>
         <main ng-class="main.class">
           <!-- for getting a random gif -->
-            <button type="submit" id="randomButton" ng-click="main.forRandom()">Random</button>
-            <!-- for searching for a gif -->
-            <form id="searchinTime">
-                        <label for="searchBar"></label>
-                        <input type="text" id="searchin" ng-model="main.searchin"/>
-                        <button type="submit" id="searchButton" ng-click="main.forSearch()">Search</button>
-            </form>
-            <div ng-repeat="gif in main.gifsArray">
-                <img ng-src="{{gif.images.original.url}}">
-
+            <div id="gifSearchResults" ng-repeat="gif in main.gifsArray">
+                <img ng-src="{{gif.images.fixed_height.url}}" ng-click="showme=true">
+                <label for="saveImg" ng-show="showme">Description:</label>
+                <input type="text" name="saveImg" id="saveImg" ng-show="showme" />
+                <button ng-show="showme" ng-click="main.toSave()">Save</button>
             </div>
-            <img ng-src="{{main.gifs}}"/>
+            <img ng-src="{{main.gifs}}" ng-click="showme=true"/>
+            <label for="saveImg" ng-show="showme">Description:</label>
+            <input type="text" name="saveImg" id="saveImg" ng-show="showme" />
+            <button ng-show="showme" ng-click"main.toSave()">Save</button>
         </main>
 
     </body>

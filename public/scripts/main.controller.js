@@ -20,4 +20,14 @@ function MainController(gifapi) {
       main.gifsArray = gif;
     });
   };
+  main.toSave = function(event) {
+    event.preventDefault();
+    var imgData = main.serialize();
+    $http({
+      url: '/favs',
+      type: 'POST',
+      data: imgData
+    });
+    main.find('input').val('');
+  };
 }
