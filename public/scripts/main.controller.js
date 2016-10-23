@@ -34,7 +34,7 @@ function MainController(gifapi, favService) {
       description: main.saveImg,
       url: main.url
     });
-    favorites.toSave(data);
+    favService.toSave(data);
   };
   main.getFavs = function() {
     favorites.getFavorites().then(function(response) {
